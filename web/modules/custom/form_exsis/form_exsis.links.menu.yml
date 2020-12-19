@@ -1,0 +1,6 @@
+form_exsis.render:
+  parent: system.admin_content
+  title: Example Modulo
+  description: 'Módulo test'
+  route_name: form_exsis.render
+  weight: 1

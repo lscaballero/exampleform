@@ -1,0 +1,8 @@
+name: Form Exsis
+type: module
+description: 'Module test form'
+package: Custom
+core_version_requirement: ^8.9 || ^9.0
+configure: csv_importer.settings
+version: '8.x-1.0'
+project: 'Form Exsis'

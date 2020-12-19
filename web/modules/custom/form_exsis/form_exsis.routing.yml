@@ -1,0 +1,15 @@
+form_exsis.render:
+  path: '/example-module/form'
+  defaults:
+    _title: 'Exsis Form'
+    _form: '\Drupal\form_exsis\Form\FormExsisExample'
+  requirements:
+    _permission: 'access content'
+
+form_exsis.rest:
+ path: '​example-module/data'
+ defaults:
+   _controller: '\Drupal\form_exsis\Controller\FormExsisRestController::rest'
+ methods: [GET]
+ requirements:
+   _access: 'TRUE'

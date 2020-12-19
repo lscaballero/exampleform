@@ -1,0 +1,63 @@
+<?php
+
+/**
+ * @file
+ * Install, update and uninstall functions for File module.
+ */
+/**
+ * Implements hook_schema().
+ */
+function form_exsis_schema()
+{
+    $schema['example_users'] = array(
+        'description' => 'Table alternative fo usuers',
+        'fields' => array(
+            'exsis_id' => array(
+                'description' => 'Exsis ID.',
+                'type' => 'serial',
+                'unsigned' => TRUE,
+                'not null' => TRUE,
+            ),
+            'exsis_name' => array(
+                'description' => 'The name of the user',
+                'type' => 'varchar',
+                'length' => 255,
+                'not null' => TRUE,
+                'default' => '',
+            ),
+            'exsis_identification' => array(
+                'description' => 'The document of the person',
+                'type' => 'int',
+                'unsigned' => TRUE,
+                'not null' => TRUE,
+                'default' => 0,
+            ),
+            'exsis_date' => array(
+                'description' => 'Date of created user',
+                'type' => 'varchar',
+                'mysql_type' => 'datetime',
+                'not null' => TRUE,
+                'size' => 'normal',
+            ),
+            'exsis_title' => array(
+                'description' => 'The employe title of the user',
+                'type' => 'varchar',
+                'length' => 255,
+                'not null' => TRUE,
+                'default' => '',
+            ),
+            'exsis_estate' => array(
+                'description' => 'The Estate of user',
+                'type' => 'int',
+                'unsigned' => TRUE,
+                'not null' => TRUE,
+                'default' => 0,
+            ),
+        ),
+        'primary key' => array('exsis_id'),
+        'indexes' => array(
+            'name_lastname' => array('exsis_name'),
+        ),
+    );
+    return $schema;
+}

@@ -1,0 +1,30 @@
+<?php
+
+use Drupal\Core\Form\FormStateInterface;
+
+/**
+ * implements hook_form_alter
+ */
+function form_exsis_form_alter(&$form, FormStateInterface $form_state, $form_id)
+{
+    switch ($form_id) {
+            //llamado a formulario legisPdfSearchForm
+        case 'form_exsis_example':
+            $form['#validate'][] = 'form_exsis_validate'; //crea la funcion del validador
+            break;
+    }
+}
+
+function form_exsis_validate($form, FormStateInterface $form_state)
+{
+    $name = $form_state->getValue('name');
+    if (strlen($name) < 5) {
+        // Set an error for the form element with a key of "title".
+        $form_state->setErrorByName('name', t('The title must be at least 5 characters long.'));
+    }
+    $document = $form_state->getValue('exsis_identification');
+    if (!is_numeric($document)) {
+        // Set an error for the form element with a key of "title".
+        $form_state->setErrorByName('exsis_identification', t('The document is not number'));
+    }
+}
